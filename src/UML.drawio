@@ -1,0 +1,78 @@
+<mxfile host="app.diagrams.net" modified="2023-09-19T23:10:36.180Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36" etag="G3wwOTZYSWeax-lf6cgK" version="21.7.5" type="device">
+    <diagram name="Página-1" id="ZA5cz03Rk4crmRd53hDd">
+        <mxGraphModel dx="2049" dy="714" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0" />
+                <mxCell id="1" parent="0" />
+                <mxCell id="d9RBQsLhz2uOGVS3qMoI-1" value="Usuario" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="80" width="210" height="270" as="geometry" />
+                </mxCell>
+                <mxCell id="d9RBQsLhz2uOGVS3qMoI-2" value="- id: int&lt;br&gt;- username: string&lt;br&gt;- nome: string&lt;br&gt;- senha: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="d9RBQsLhz2uOGVS3qMoI-1" vertex="1">
+                    <mxGeometry y="26" width="210" height="64" as="geometry" />
+                </mxCell>
+                <mxCell id="d9RBQsLhz2uOGVS3qMoI-3" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="d9RBQsLhz2uOGVS3qMoI-1" vertex="1">
+                    <mxGeometry y="90" width="210" height="8" as="geometry" />
+                </mxCell>
+                <mxCell id="d9RBQsLhz2uOGVS3qMoI-4" value="+ Usuario(int, String, String, String)&lt;br&gt;+ Usuario(int, String, String)&lt;br&gt;+ getId()&lt;br&gt;+ setId(int id)&lt;br&gt;+ getUsername()&lt;br&gt;+ setUsername(String username)&lt;br&gt;+ getNome()&lt;br&gt;+ setNome(String nome)&lt;br&gt;+ getSenha()&lt;br&gt;+ setSenha(String senha)&lt;br&gt;+ exibir(): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="d9RBQsLhz2uOGVS3qMoI-1" vertex="1">
+                    <mxGeometry y="98" width="210" height="172" as="geometry" />
+                </mxCell>
+                <mxCell id="swSagIGxdvwega-bc_Pf-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" edge="1" parent="1" source="swSagIGxdvwega-bc_Pf-1" target="d9RBQsLhz2uOGVS3qMoI-2">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="swSagIGxdvwega-bc_Pf-1" value="Fibook" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-310" y="80" width="230" height="240" as="geometry" />
+                </mxCell>
+                <mxCell id="swSagIGxdvwega-bc_Pf-2" value="- usuario: ArrayList&amp;lt;Usuario&amp;gt;&lt;br&gt;- posts: ArrayList&amp;lt;Post&amp;gt;&lt;br&gt;- comentarios: ArrayList&amp;lt;Comentario&amp;gt;&lt;br&gt;- usuarioLogado: Usuario&lt;br&gt;- bancoDeDados: BancoDeDados" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="swSagIGxdvwega-bc_Pf-1">
+                    <mxGeometry y="26" width="230" height="84" as="geometry" />
+                </mxCell>
+                <mxCell id="swSagIGxdvwega-bc_Pf-3" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="swSagIGxdvwega-bc_Pf-1">
+                    <mxGeometry y="110" width="230" height="8" as="geometry" />
+                </mxCell>
+                <mxCell id="swSagIGxdvwega-bc_Pf-4" value="+ Fibook()&lt;br&gt;+ logar(): void&lt;br&gt;+ iniciar(): void&lt;br&gt;+ postar(): void&lt;br&gt;+ comentar(): void&lt;br&gt;+ verPerfil(): void&lt;br&gt;+ criarUsuario(): void&lt;br&gt;+ listarUsuario(): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="swSagIGxdvwega-bc_Pf-1">
+                    <mxGeometry y="118" width="230" height="122" as="geometry" />
+                </mxCell>
+                <mxCell id="swSagIGxdvwega-bc_Pf-9" value="BancoDeDados" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-723" y="40" width="310" height="140" as="geometry" />
+                </mxCell>
+                <mxCell id="swSagIGxdvwega-bc_Pf-10" value="+ getConexao(): Connection&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;+ inserirUsuario(Usuario usuario): void&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;+ inserirPost(Post post): void&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;+inserirComentario(Comentario comentario): void&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;+ carregarUsuarios(): ArrayList&amp;lt;Usuario&amp;gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;+ carregarPosts(): ArrayList&amp;lt;Post&amp;gt;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;+ carregarComentarios(): ArrayList&amp;lt;Comentario&amp;gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="swSagIGxdvwega-bc_Pf-9">
+                    <mxGeometry y="26" width="310" height="114" as="geometry" />
+                </mxCell>
+                <mxCell id="swSagIGxdvwega-bc_Pf-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" edge="1" parent="1" source="swSagIGxdvwega-bc_Pf-13" target="swSagIGxdvwega-bc_Pf-4">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="swSagIGxdvwega-bc_Pf-13" value="Post&lt;br&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-460" y="530" width="190" height="210" as="geometry" />
+                </mxCell>
+                <mxCell id="swSagIGxdvwega-bc_Pf-14" value="- id: int&lt;br&gt;- usuarioId: int&lt;br&gt;- conteudo: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="swSagIGxdvwega-bc_Pf-13">
+                    <mxGeometry y="26" width="190" height="54" as="geometry" />
+                </mxCell>
+                <mxCell id="swSagIGxdvwega-bc_Pf-15" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="swSagIGxdvwega-bc_Pf-13">
+                    <mxGeometry y="80" width="190" height="8" as="geometry" />
+                </mxCell>
+                <mxCell id="swSagIGxdvwega-bc_Pf-16" value="+ Post(int, int, String)&lt;br&gt;+ getId()&lt;br&gt;+ setId(int id)&lt;br&gt;+ getUsuarioId()&lt;br&gt;+ setUsuarioId(int usuarioId)&lt;br&gt;+ getConteudo()&lt;br&gt;+ setConteudo(String conteudo)&lt;br&gt;+ exibir(): void&lt;br&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="swSagIGxdvwega-bc_Pf-13">
+                    <mxGeometry y="88" width="190" height="122" as="geometry" />
+                </mxCell>
+                <mxCell id="swSagIGxdvwega-bc_Pf-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" edge="1" parent="1" source="swSagIGxdvwega-bc_Pf-17" target="swSagIGxdvwega-bc_Pf-4">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="-173" y="310" as="targetPoint" />
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="swSagIGxdvwega-bc_Pf-17" value="Comentatio" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-150" y="530" width="190" height="250" as="geometry" />
+                </mxCell>
+                <mxCell id="swSagIGxdvwega-bc_Pf-18" value="- id: int&lt;br&gt;- usuarioId: int&lt;br&gt;- postId: int&lt;br&gt;- conteudo: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="swSagIGxdvwega-bc_Pf-17">
+                    <mxGeometry y="26" width="190" height="64" as="geometry" />
+                </mxCell>
+                <mxCell id="swSagIGxdvwega-bc_Pf-19" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="swSagIGxdvwega-bc_Pf-17">
+                    <mxGeometry y="90" width="190" height="8" as="geometry" />
+                </mxCell>
+                <mxCell id="swSagIGxdvwega-bc_Pf-20" value="+ Comentario(int, int, int, String)&lt;br&gt;+ getId()&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;+ setId(int id)&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;+ getUsuarioId()&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;+ setUsuarioId(int usuarioId)&lt;br&gt;+ getPostId()&lt;br&gt;+ setPostId(int postId)&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;+ getConteudo()&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;+ setConteudo(String conteudo)&lt;br&gt;+ exibir(): void&lt;br&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="swSagIGxdvwega-bc_Pf-17">
+                    <mxGeometry y="98" width="190" height="152" as="geometry" />
+                </mxCell>
+                <mxCell id="swSagIGxdvwega-bc_Pf-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.015;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;" edge="1" parent="1" source="swSagIGxdvwega-bc_Pf-10" target="swSagIGxdvwega-bc_Pf-4">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
