@@ -14,26 +14,23 @@ public class Fibook {
     public void logar() {
         System.out.println("LOGAR: ");
         System.out.println("Usuario-> ");
-        String usuario = scanner.nextLine();
+        String username = scanner.nextLine();
 
         System.out.println("Senha-> ");
         String senha = scanner.nextLine();
 
-        for(Usuario usuario1 : usuarios) {
-            if (usuario == usuario1.getUsername()) {
-                if (senha == usuario1.getSenha()) {
-                    usuarioLogado = usuario1;
+        for(Usuario usuario : usuarios) {
+            if (username == usuario.getUsername()) {
+                if (senha == usuario.getSenha()) {
+                    usuarioLogado = usuario;
                 }
-
             }
+
             System.out.println("Usuario nao encontrado");
-
         }
-
     };
 
     public void iniciar() {
-
         do {
             System.out.println("FIBOOK:");
             System.out.println("1 - LOGAR");
@@ -54,8 +51,6 @@ public class Fibook {
                 case 6: break;
             }
         } while(true);
-
-
     };
 
     public void postar() {
