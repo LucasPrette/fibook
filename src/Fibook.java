@@ -84,7 +84,8 @@ public class Fibook {
     };
 
     public void verPerfil() {
-
+        System.out.println("PERFIL:");
+        this.usuarioLogado.exibir();
     };
 
     public void criarUsuario() {
