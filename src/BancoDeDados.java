@@ -1,6 +1,5 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 
 public class BancoDeDados {
         private String url = "jdbc:sqlserver://localhost:1433;databaseName=fib;encrypt=false;";
@@ -17,6 +16,140 @@ public class BancoDeDados {
             System.err.println("Erro de conexao");
             e.printStackTrace();
             return null;
+        }
+    }
+
+    public void inserirUsuario(Usuario usuario) {
+        try {
+            String sql = "INSERT INTO fibook.usuario (username, nome, senha) VALUES (?, ?, ?);";
+
+            PreparedStatement statement = this.getConexao().prepareStatement(sql);
+
+            statement.setString(0, usuario.getUsername());
+            statement.setString(1, usuario.getNome());
+            statement.setString(2, usuario.getSenha());
+
+            int linhasAdicionadas = statement.executeUpdate();
+
+            if (linhasAdicionadas == 0) {
+                throw new Exception("Não foi possível criar o usuário");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void inserirPost(Post post) {
+        try {
+            String sql = "INSERT INTO fibook.post (conteudo, usuario_id) VALUES (?, ?);";
+
+            PreparedStatement statement = this.getConexao().prepareStatement(sql);
+
+            statement.setString(0, usuario.getConteudo());
+            statement.setString(1, usuario.getUsuarioId());
+
+            int linhasAdicionadas = statement.executeUpdate();
+
+            if (linhasAdicionadas == 0) {
+                throw new Exception("Não foi possível criar o post");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void inserirComentario(Comentario comentario) {
+        try {
+            String sql = "INSERT INTO fibook.comentario (conteudo, usuario_id, post_id) VALUES (?, ?, ?);";
+
+            PreparedStatement statement = this.getConexao().prepareStatement(sql);
+
+            statement.setString(0, usuario.getConteudo());
+            statement.setString(1, usuario.getUsuarioId());
+            statement.setString(2, usuario.getPostId());
+
+            int linhasAdicionadas = statement.executeUpdate();
+
+            if (linhasAdicionadas == 0) {
+                throw new Exception("Não foi possível criar o comentario");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public ArrayList<Usuario> carregarUsuarios() {
+        ArrayList<Usuario> resultado = new ArrayList<>();
+
+        try {
+            String sql = "SELECT id, username, nome FROM fibook.usuario;";
+
+            ResultSet linhas = this.getConexao().prepareStatement(sql).executeQuery();
+
+            while (linhas.next()) {
+                int id = linhas.getInt("id");
+                String username = linhas.getString("username");
+                String nome = linhas.getString("nome");
+
+                Usuario usuario = new Usuario(id, username, nome);
+
+                resultado.add(usuario);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            return resultado;
+        }
+    }
+
+    public ArrayList<Post> carregarPosts() {
+        ArrayList<Post> resultado = new ArrayList<>();
+
+        try {
+            // TODO
+            String sql = "SELECT id, conteudo, usuario_id FROM fibook.post;";
+
+            ResultSet linhas = this.getConexao().prepareStatement(sql).executeQuery();
+
+            while (linhas.next()) {
+                int id = linhas.getInt("id");
+                String username = linhas.getString("conteudo");
+                String usuarioId = linhas.getString("usuario_id");
+
+                Post post = new Post(id, username, usuarioId);
+
+                resultado.add(post);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            return resultado;
+        }
+    }
+
+    public ArrayList<Comentario> carregarComentarios() {
+        ArrayList<Comentario> resultado = new ArrayList<>();
+
+        try {
+            // TODO
+            String sql = "SELECT id, conteudo, usuario_id, post_id FROM fibook.comentario;";
+
+            ResultSet linhas = this.getConexao().prepareStatement(sql).executeQuery();
+
+            while (linhas.next()) {
+                int id = linhas.getInt("id");
+                String username = linhas.getString("conteudo");
+                String usuarioId = linhas.getString("usuario_id");
+                String postId = linhas.getString("post_id");
+
+                Comentario comentario = new Comentario(id, username, usuarioId, postId);
+
+                resultado.add(comentario);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            return resultado;
         }
     }
 
