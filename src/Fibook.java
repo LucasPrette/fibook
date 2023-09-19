@@ -9,10 +9,11 @@ public class Fibook {
     private Arraylist<Comentario> comentarios = new ArrayList<>();
 
     private Usuario usuarioLogado;
-    private BancoDeDados bancoDeDados;
+    private BancoDeDados bancoDeDados = new BancoDeDados();
 
     public void logar() {
         System.out.println("LOGAR: ");
+
         System.out.println("Usuario-> ");
         String usuario = scanner.nextLine();
 
@@ -20,8 +21,11 @@ public class Fibook {
         String senha = scanner.nextLine();
 
         for(Usuario usuario1 : usuarios) {
+
             if (usuario == usuario1.getUsername()) {
+
                 if (senha == usuario1.getSenha()) {
+
                     usuarioLogado = usuario1;
                 }
 
@@ -49,17 +53,22 @@ public class Fibook {
                 case 1: logar();break;
                 case 2: criarUsuario(); break;
                 case 3: listarUsuarios(); break;
-                case 4: break;
-                case 5: break;
-                case 6: break;
+                case 4: verPerfil();break;
+                case 5: comentar();break;
+                case 6: postar();break;
             }
         } while(true);
-
-
     };
 
     public void postar() {
+        System.out.println("POSTAR: ");
 
+        System.out.print("Conteudo -> ");
+        String conteudo = scanner.nextLine();
+
+        Post post = new Post(usuarioLogado.getId(), conteudo);
+
+        bancoDeDados.inserirPost(post);
     };
 
     public void comentar() {
@@ -81,14 +90,13 @@ public class Fibook {
         String senha = scanner.nextLine();
 
         Usuario usuario = new Usuario(nome, username,senha);
-
     };
 
     public void listarUsuarios() {
+        System.out.println("LISTAR USUARIOS: ");
+
         for(int i = 0; i < usuarios; i++) {
-            System.out.println(usuarios[i].getNome());
-            System.out.println(usuarios[i].getId());
-            System.out.println(usuarios[i].getUsername);
+            usuarios[i].exibir();
         }
     };
 
