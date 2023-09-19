@@ -58,7 +58,29 @@ public class Fibook {
     };
 
     public void comentar() {
+        System.out.println("COMENTAR:");
+        System.out.println("Digite o ID do post");
 
+        int postId = this.scanner.nextInt();
+        Post postExiste = null;
+
+        for (Post post : this.posts) {
+            if (post.getId() == postId) {
+                postExiste = post;
+            }
+        }
+
+        if (postExiste == null) {
+            System.out.println("Post não encontrado");
+            return;
+        }
+
+        System.out.println("Digite o conteúdo do comentário:");
+        String conteudo = this.scanner.nextLine();
+
+        Comentario comentario = new Comentario(this.usuarioLogado.getId(), postExiste.getId(), conteudo);
+
+        this.bancoDeDados.inserirComentario(comentario);
     };
 
     public void verPerfil() {
