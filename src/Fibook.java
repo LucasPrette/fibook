@@ -15,29 +15,23 @@ public class Fibook {
         System.out.println("LOGAR: ");
 
         System.out.println("Usuario-> ");
-        String usuario = scanner.nextLine();
+        String username = scanner.nextLine();
 
         System.out.println("Senha-> ");
         String senha = scanner.nextLine();
 
-        for(Usuario usuario1 : usuarios) {
-
-            if (usuario == usuario1.getUsername()) {
-
-                if (senha == usuario1.getSenha()) {
-
-                    usuarioLogado = usuario1;
+        for(Usuario usuario : usuarios) {
+            if (username == usuario.getUsername()) {
+                if (senha == usuario.getSenha()) {
+                    usuarioLogado = usuario;
                 }
-
             }
+
             System.out.println("Usuario nao encontrado");
-
         }
-
     };
 
     public void iniciar() {
-
         do {
             System.out.println("FIBOOK:");
             System.out.println("1 - LOGAR");
@@ -72,11 +66,34 @@ public class Fibook {
     };
 
     public void comentar() {
+        System.out.println("COMENTAR:");
+        System.out.println("Digite o ID do post");
 
+        int postId = this.scanner.nextInt();
+        Post postExiste = null;
+
+        for (Post post : this.posts) {
+            if (post.getId() == postId) {
+                postExiste = post;
+            }
+        }
+
+        if (postExiste == null) {
+            System.out.println("Post não encontrado");
+            return;
+        }
+
+        System.out.println("Digite o conteúdo do comentário:");
+        String conteudo = this.scanner.nextLine();
+
+        Comentario comentario = new Comentario(this.usuarioLogado.getId(), postExiste.getId(), conteudo);
+
+        this.bancoDeDados.inserirComentario(comentario);
     };
 
     public void verPerfil() {
-
+        System.out.println("PERFIL:");
+        this.usuarioLogado.exibir();
     };
 
     public void criarUsuario() {
