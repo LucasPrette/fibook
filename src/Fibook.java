@@ -74,10 +74,10 @@ public class Fibook {
     };
 
     public void ListarUsuarios() {
-        for(int i = 0; i < usuarios; i++) {
-            System.out.println(usuarios[i].getNome());
-            System.out.println(usuarios[i].getId());
-            System.out.println(usuarios[i].getUsername);
+        for(int i = 0; i < usuarios.size(); i++) {
+            System.out.println(usuarios.get(i).getNome());
+            System.out.println(usuarios.get(i).getId());
+            System.out.println(usuarios.get(i).getUsername());
         }
     };
 
