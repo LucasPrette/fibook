@@ -19,6 +19,17 @@ public class Fibook {
         System.out.println("Senha-> ");
         String senha = scanner.nextLine();
 
+        for(Usuario usuario1 : usuarios) {
+            if (usuario == usuario1.getUsername()) {
+                if (senha == usuario1.getSenha()) {
+                    usuarioLogado = usuario1;
+                }
+
+            }
+            System.out.println("Usuario nao encontrado");
+
+        }
+
     };
 
     public void iniciar() {
@@ -35,9 +46,9 @@ public class Fibook {
             int opcao = scanner.nextInt();
 
             switch (opcao) {
-                case 1: break;
-                case 2: break;
-                case 3: break;
+                case 1: logar();break;
+                case 2: criarUsuario(); break;
+                case 3: listarUsuarios(); break;
                 case 4: break;
                 case 5: break;
                 case 6: break;
@@ -73,7 +84,7 @@ public class Fibook {
 
     };
 
-    public void ListarUsuarios() {
+    public void listarUsuarios() {
         for(int i = 0; i < usuarios; i++) {
             System.out.println(usuarios[i].getNome());
             System.out.println(usuarios[i].getId());
