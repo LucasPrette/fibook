@@ -53,6 +53,7 @@ public class Comentario {
     }
 
     public void exibir() {
+        System.out.println("\nCOMENTARIO: ");
         System.out.println("ID: " + this.usuarioId);
         System.out.println("POST ID: " + this.postId);
         System.out.println("CONTEUDO: " + this.conteudo);

@@ -10,7 +10,6 @@ public class BancoDeDados {
 
         try {
             Connection connection = DriverManager.getConnection(url,usuario, senha);
-            System.out.println("Conexao Bem sucedida");
             return connection;
         } catch (SQLException e) {
             System.err.println("Erro de conexao");
@@ -21,12 +20,12 @@ public class BancoDeDados {
 
     public void inserirUsuario(Usuario usuario) {
         try {
-            String sql = "INSERT INTO fibook.usuario (username, nome, senha) VALUES (?, ?, ?);";
+            String sql = "INSERT INTO fibook.usuario (nome, username, senha) VALUES (?, ?, ?);";
 
             PreparedStatement statement = this.getConexao().prepareStatement(sql);
 
-            statement.setString(1, usuario.getUsername());
-            statement.setString(2, usuario.getNome());
+            statement.setString(1, usuario.getNome());
+            statement.setString(2, usuario.getUsername());
             statement.setString(3, usuario.getSenha());
 
             int linhasAdicionadas = statement.executeUpdate();
@@ -82,7 +81,7 @@ public class BancoDeDados {
         ArrayList<Usuario> resultado = new ArrayList<>();
 
         try {
-            String sql = "SELECT id, username, nome FROM fibook.usuario;";
+            String sql = "SELECT id, username, nome, senha FROM fibook.usuario;";
 
             ResultSet linhas = this.getConexao().prepareStatement(sql).executeQuery();
 
@@ -90,8 +89,9 @@ public class BancoDeDados {
                 int id = linhas.getInt("id");
                 String username = linhas.getString("username");
                 String nome = linhas.getString("nome");
+                String senha = linhas.getString("senha");
 
-                Usuario usuario = new Usuario(id, username, nome);
+                Usuario usuario = new Usuario(id, username, nome, senha);
 
                 resultado.add(usuario);
             }
@@ -112,10 +112,10 @@ public class BancoDeDados {
 
             while (linhas.next()) {
                 int id = linhas.getInt("id");
-                String username = linhas.getString("conteudo");
-                String usuarioId = linhas.getString("usuario_id");
+                String conteudo = linhas.getString("conteudo");
+                int usuarioId = linhas.getInt("usuario_id");
 
-                Post post = new Post(id, username, usuarioId);
+                Post post = new Post(id, usuarioId, conteudo);
 
                 resultado.add(post);
             }

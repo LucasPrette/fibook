@@ -21,6 +21,7 @@ public class Fibook {
     };
 
     public void logar() {
+        scanner.nextLine();
         System.out.println("LOGAR: ");
 
         System.out.println("Usuario-> ");
@@ -38,21 +39,30 @@ public class Fibook {
                 }
             }
 
-            System.out.println("Usuario nao encontrado");
         }
+            System.out.println("Usuario nao encontrado");
     };
 
     public void iniciar() {
         do {
-            System.out.println("FIBOOK:");
+            System.out.println("\nFIBOOK:");
             System.out.println("1 - LOGAR");
             System.out.println("2 - CRIAR USUARIO");
-            System.out.println("3 - LISTAR USUARIOS");
-            System.out.println("4 - VER PERFIL");
-            System.out.println("5 - COMENTAR");
-            System.out.println("6 - POSTAR");
+
+            if (usuarioLogado != null) {
+                System.out.println("3 - LISTAR USUARIOS");
+                System.out.println("4 - VER PERFIL");
+                System.out.println("5 - COMENTAR");
+                System.out.println("6 - POSTAR");
+            }
+
             System.out.print(" -> ");
             int opcao = scanner.nextInt();
+
+            if((usuarioLogado == null) && opcao > 2) {
+                System.out.println("OPCAO INVALIDA!");
+                return;
+            }
 
             switch (opcao) {
                 case 1: logar();break;
@@ -66,6 +76,7 @@ public class Fibook {
     };
 
     public void postar() {
+        scanner.nextLine();
         System.out.println("POSTAR: ");
 
         System.out.print("Conteudo -> ");
@@ -79,6 +90,7 @@ public class Fibook {
     };
 
     public void comentar() {
+        scanner.nextLine();
         System.out.println("COMENTAR:");
         System.out.println("Digite o ID do post");
 
@@ -97,6 +109,7 @@ public class Fibook {
         }
 
         System.out.println("Digite o conteúdo do comentário:");
+        scanner.nextLine();
         String conteudo = this.scanner.nextLine();
 
         Comentario comentario = new Comentario(this.usuarioLogado.getId(), postExiste.getId(), conteudo);
@@ -136,6 +149,7 @@ public class Fibook {
     };
 
     public void criarUsuario() {
+        scanner.nextLine();
         System.out.println("Nome -> ");
         String nome = scanner.nextLine();
 
@@ -145,7 +159,7 @@ public class Fibook {
         System.out.println("Senha -> ");
         String senha = scanner.nextLine();
 
-        Usuario usuario = new Usuario(nome, username, senha);
+        Usuario usuario = new Usuario(username, nome, senha);
 
         this.bancoDeDados.inserirUsuario(usuario);
         usuarios = this.bancoDeDados.carregarUsuarios();

@@ -3,8 +3,15 @@ public class Post {
     private int usuarioId;
     private String conteudo;
 
-    public Post(int id, String usuarioId, String conteudo){};
-    public Post(int usuarioId, String conteudo){};
+    public Post(int id, int usuarioId, String conteudo){
+        this.id = id;
+        this.usuarioId = usuarioId;
+        this.conteudo = conteudo;
+    };
+    public Post(int usuarioId, String conteudo){
+        this.usuarioId = usuarioId;
+        this.conteudo = conteudo;
+    };
 
     // METODOS
 
@@ -30,6 +37,7 @@ public class Post {
         return conteudo;
     }
     public void exibir(){
+        System.out.println("\nPOST: ");
         System.out.println("ID: " + getId());
         System.out.println("UsuarioID: " + getUsuarioId());
         System.out.println("Conteudo: " + getConteudo());
