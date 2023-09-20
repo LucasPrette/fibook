@@ -113,7 +113,7 @@ public class Fibook {
         System.out.println("LISTAR USUARIOS: ");
 
         for(int i = 0; i < usuarios; i++) {
-            usuarios[i].exibir();
+            usuarios.get(i).exibir();
         }
     };
 
