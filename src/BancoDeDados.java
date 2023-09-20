@@ -25,9 +25,9 @@ public class BancoDeDados {
 
             PreparedStatement statement = this.getConexao().prepareStatement(sql);
 
-            statement.setString(0, usuario.getUsername());
-            statement.setString(1, usuario.getNome());
-            statement.setString(2, usuario.getSenha());
+            statement.setString(1, usuario.getUsername());
+            statement.setString(2, usuario.getNome());
+            statement.setString(3, usuario.getSenha());
 
             int linhasAdicionadas = statement.executeUpdate();
 
@@ -45,8 +45,8 @@ public class BancoDeDados {
 
             PreparedStatement statement = this.getConexao().prepareStatement(sql);
 
-            statement.setString(0, usuario.getConteudo());
-            statement.setString(1, usuario.getUsuarioId());
+            statement.setString(1, post.getConteudo());
+            statement.setInt(2, post.getUsuarioId());
 
             int linhasAdicionadas = statement.executeUpdate();
 
@@ -64,9 +64,9 @@ public class BancoDeDados {
 
             PreparedStatement statement = this.getConexao().prepareStatement(sql);
 
-            statement.setString(0, usuario.getConteudo());
-            statement.setString(1, usuario.getUsuarioId());
-            statement.setString(2, usuario.getPostId());
+            statement.setString(1, comentario.getConteudo());
+            statement.setInt(2, comentario.getUsuarioId());
+            statement.setInt(3, comentario.getPostId());
 
             int linhasAdicionadas = statement.executeUpdate();
 
@@ -106,7 +106,6 @@ public class BancoDeDados {
         ArrayList<Post> resultado = new ArrayList<>();
 
         try {
-            // TODO
             String sql = "SELECT id, conteudo, usuario_id FROM fibook.post;";
 
             ResultSet linhas = this.getConexao().prepareStatement(sql).executeQuery();
@@ -131,18 +130,17 @@ public class BancoDeDados {
         ArrayList<Comentario> resultado = new ArrayList<>();
 
         try {
-            // TODO
             String sql = "SELECT id, conteudo, usuario_id, post_id FROM fibook.comentario;";
 
             ResultSet linhas = this.getConexao().prepareStatement(sql).executeQuery();
 
             while (linhas.next()) {
                 int id = linhas.getInt("id");
-                String username = linhas.getString("conteudo");
-                String usuarioId = linhas.getString("usuario_id");
-                String postId = linhas.getString("post_id");
+                String conteudo = linhas.getString("conteudo");
+                int usuarioId = linhas.getInt("usuario_id");
+                int postId = linhas.getInt("post_id");
 
-                Comentario comentario = new Comentario(id, username, usuarioId, postId);
+                Comentario comentario = new Comentario(id, usuarioId, postId, conteudo);
 
                 resultado.add(comentario);
             }

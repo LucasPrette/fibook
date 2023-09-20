@@ -1,10 +1,10 @@
 public class Post {
     private int id;
-    private String usuarioId;
+    private int usuarioId;
     private String conteudo;
 
     public Post(int id, String usuarioId, String conteudo){};
-    public Post(String usuarioId, String conteudo){};
+    public Post(int usuarioId, String conteudo){};
 
     // METODOS
 
@@ -15,10 +15,10 @@ public class Post {
     public int getId(){
         return id;
     }
-    public void setUsuarioId(String usuarioId){
+    public void setUsuarioId(int usuarioId){
         this.usuarioId = usuarioId;
     }
-    public String getUsuarioId(){
+    public int getUsuarioId(){
         return usuarioId;
     }
 

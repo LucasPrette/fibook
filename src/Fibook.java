@@ -4,12 +4,21 @@ import java.util.Scanner;
 public class Fibook {
     Scanner scanner = new Scanner(System.in);
 
-    private ArrayList<Usuario> usuarios = new ArrayList<>();
-    private Arraylist<Post> posts = new ArrayList<>();
-    private Arraylist<Comentario> comentarios = new ArrayList<>();
+    private ArrayList<Usuario> usuarios;
+    private ArrayList<Post> posts;
+    private ArrayList<Comentario> comentarios;
 
     private Usuario usuarioLogado;
-    private BancoDeDados bancoDeDados = new BancoDeDados();
+    private BancoDeDados bancoDeDados;
+
+    public Fibook()
+    {
+        bancoDeDados = new BancoDeDados();
+        usuarios = bancoDeDados.carregarUsuarios();
+        posts = bancoDeDados.carregarPosts();
+        comentarios = bancoDeDados.carregarComentarios();
+
+    };
 
     public void logar() {
         System.out.println("LOGAR: ");
@@ -21,9 +30,11 @@ public class Fibook {
         String senha = scanner.nextLine();
 
         for(Usuario usuario : usuarios) {
-            if (username == usuario.getUsername()) {
-                if (senha == usuario.getSenha()) {
+            if (username.equals(usuario.getUsername())) {
+                if (senha.equals(usuario.getSenha())) {
                     usuarioLogado = usuario;
+                    this.iniciar();
+                    return;
                 }
             }
 
@@ -63,6 +74,8 @@ public class Fibook {
         Post post = new Post(usuarioLogado.getId(), conteudo);
 
         bancoDeDados.inserirPost(post);
+
+        this.posts = this.bancoDeDados.carregarPosts();
     };
 
     public void comentar() {
@@ -89,11 +102,37 @@ public class Fibook {
         Comentario comentario = new Comentario(this.usuarioLogado.getId(), postExiste.getId(), conteudo);
 
         this.bancoDeDados.inserirComentario(comentario);
+        this.comentarios = this.bancoDeDados.carregarComentarios();
     };
 
     public void verPerfil() {
+        ArrayList<Comentario> comentariosDoUsuario = new ArrayList<>();
+        ArrayList<Post> postsDoUsuario = new ArrayList<>();
+
+        for (Comentario comentario : this.comentarios) {
+            if (comentario.getUsuarioId() == this.usuarioLogado.getId()) {
+                comentariosDoUsuario.add(comentario);
+            }
+        }
+
+        for (Post post : this.posts) {
+            if (post.getUsuarioId() == this.usuarioLogado.getId()) {
+                postsDoUsuario.add(post);
+            }
+        }
+
         System.out.println("PERFIL:");
         this.usuarioLogado.exibir();
+
+        for (Post post : postsDoUsuario) {
+            post.exibir();
+
+            for (Comentario comentario : comentariosDoUsuario) {
+                if (comentario.getPostId() == post.getId()) {
+                    comentario.exibir();
+                }
+            }
+        }
     };
 
     public void criarUsuario() {
@@ -107,6 +146,9 @@ public class Fibook {
         String senha = scanner.nextLine();
 
         Usuario usuario = new Usuario(nome, username, senha);
+
+        this.bancoDeDados.inserirUsuario(usuario);
+        usuarios = this.bancoDeDados.carregarUsuarios();
     };
 
     public void listarUsuarios() {
