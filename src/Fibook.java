@@ -106,13 +106,13 @@ public class Fibook {
         System.out.println("Senha -> ");
         String senha = scanner.nextLine();
 
-        Usuario usuario = new Usuario(nome, username,senha);
+        Usuario usuario = new Usuario(nome, username, senha);
     };
 
     public void listarUsuarios() {
         System.out.println("LISTAR USUARIOS: ");
 
-        for(int i = 0; i < usuarios; i++) {
+        for(int i = 0; i < usuarios.size(); i++) {
             usuarios.get(i).exibir();
         }
     };
