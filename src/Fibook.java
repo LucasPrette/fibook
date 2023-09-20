@@ -98,7 +98,7 @@ public class Fibook {
         System.out.println("Senha -> ");
         String senha = scanner.nextLine();
 
-        Usuario usuario = new Usuario(nome, username,senha);
+        Usuario usuario = new Usuario(nome, username, senha);
 
     };
 
